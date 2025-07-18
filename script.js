@@ -153,6 +153,27 @@ function toggleBackToTopButton() {
     }
 }
 
+// Show/hide floating buttons based on form visibility
+function toggleFloatingButtons() {
+    const orderFormSection = document.querySelector('.order-form-section');
+    const fixedBuyButton = document.querySelector('.fixed-buy-button');
+    
+    if (orderFormSection && fixedBuyButton) {
+        const rect = orderFormSection.getBoundingClientRect();
+        const isFormVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        
+        if (isFormVisible) {
+            fixedBuyButton.style.opacity = '0';
+            fixedBuyButton.style.visibility = 'hidden';
+            fixedBuyButton.style.transform = 'translateX(-50%) translateY(20px)';
+        } else {
+            fixedBuyButton.style.opacity = '1';
+            fixedBuyButton.style.visibility = 'visible';
+            fixedBuyButton.style.transform = 'translateX(-50%) translateY(0)';
+        }
+    }
+}
+
 // Update shipping cost based on wilaya (example logic)
 function updateShippingCost() {
     const wilaya = document.getElementById('wilaya').value;
@@ -229,7 +250,10 @@ backToTopBtn.addEventListener('click', scrollToTop);
 document.getElementById('wilaya').addEventListener('change', updateShippingCost);
 
 // Scroll event for back to top button
-window.addEventListener('scroll', toggleBackToTopButton);
+window.addEventListener('scroll', function() {
+    toggleBackToTopButton();
+    toggleFloatingButtons();
+});
 
 // Close popup when clicking outside
 orderPopup.addEventListener('click', function(e) {
