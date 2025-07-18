@@ -291,7 +291,7 @@ body {
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .form-row {
@@ -489,6 +489,7 @@ body {
     flex-direction: column;
     gap: 10px;
     align-items: center;
+    transition: all 0.3s ease;
 }
 
 .buy-now-btn {
@@ -840,7 +841,7 @@ body {
     }
     
     .form-group {
-        margin-bottom: 0.8rem;
+        margin-bottom: 0.4rem;
     }
 }
 
