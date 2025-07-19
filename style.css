@@ -583,6 +583,14 @@ body {
     font-size: 1rem;
 }
 
+.buy-now-btn span,
+.whatsapp-btn span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+}
+
 @media (max-width: 480px) {
     .fixed-buy-button {
         width: 95%;
